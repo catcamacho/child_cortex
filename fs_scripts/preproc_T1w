@@ -1,0 +1,43 @@
+#! /bin/tcsh
+
+# Usage: preproc_T1w subjectFolder [subjectFolder subjectFolder...]
+# subjectFolder =  the subject's folder name (e.g. 001-T1). Multiple can be entered at once.
+
+setenv SUBJECTS_DIR /home/camachocm2/Analysis/Aggregate_anats/tempSubjDir
+set rawfp = /home/camachocm2/moochie/DIBS/MRI_Data
+
+foreach sub ($argv)
+
+	mkdir /home/camachocm2/Analysis/Aggregate_anats/raw/D$sub
+	cp -r ${rawfp}/${sub}/T1w* /home/camachocm2/Analysis/Aggregate_anats/raw/D${sub}
+	
+	set raw_dir = /home/camachocm2/Analysis/Aggregate_anats/raw/D${sub}/T1w*
+	set raw_dir = $raw_dir[$#raw_dir]
+	
+	set dicoms = ($raw_dir/*)
+	mri_convert -i $dicoms[1] -o ${raw_dir}/mprage.nii
+	
+	set rawdata = ${raw_dir}/mprage.nii 
+
+	if (-e $rawdata) then
+		echo '****************************************************************** '
+		echo '****************************************************************** '
+		echo '***************** Working on subject '$sub'********************* '
+		echo '****************************************************************** '
+		echo '****************************************************************** '
+
+		recon-all -s $sub -i $rawdata -autorecon1 -gcut
+
+		echo '****************************************************************** '
+		echo '****************************************************************** '
+		echo '****************** finished subject '$sub'********************** '
+		echo '****************************************************************** '
+		echo '****************************************************************** '
+	else
+		echo
+		echo '>> WARNIING:'$sub' not found <<' 
+		echo '>> WARNIING:'$sub' not found <<' >> $SUBJECTS_DIR/log.txt
+		echo 
+	endif
+end
+
