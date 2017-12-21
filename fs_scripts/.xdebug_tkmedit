@@ -1,0 +1,12 @@
+tkmedit started: Wed Dec 20 15:35:08 2017
+
+	/usr/local/freesurfer/tktools/tkmedit.bin 233 brainmask.mgz -aux T1.mgz -tcl /home/camachocm2/Analysis/Aggregate_anats/child_cortex/fs_scripts/tkmedit_BMedit.tcl 
+
+$Id: tkmedit.c,v 1.348 2014/11/06 16:47:49 greve Exp $ $Name: stable6 $
+Set user home dir to /home/camachocm2/Analysis/Aggregate_anats/child_cortex/fs_scripts
+Set subject home dir to /home/camachocm2/Analysis/Aggregate_anats/tempSubjDir/233
+Using interface file /usr/local/freesurfer/tktools/tkmedit.tcl
+Tcl: Successfully parsed tkmedit.tcl
+Tcl: Successfully parsed tkm_functional.tcl
+Error 10 in DspA_DspA_ConvertScreenToBuffer_: Invalid screen point.
+Program terminated successfully.
