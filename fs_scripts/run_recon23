@@ -1,6 +1,6 @@
 #! /bin/csh -f
 
-# Usage: fs_recon23 subjectFolder [subjectFolder subjectFolder...]
+# Usage: run_recon23 subjectFolder [subjectFolder subjectFolder...]
 # subjectFolder =  the subject's folder name (e.g. 001-T1). Multiple can be entered at once.
 
 setenv SUBJECTS_DIR /home/camachocm2/Analysis/Aggregate_anats/tempSubjDir
