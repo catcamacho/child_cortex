@@ -1,37 +1,34 @@
-#! /bin/tcsh
+#! /bin/csh
 
 # Usage: preproc_T1w subjectFolder [subjectFolder subjectFolder...]
 # subjectFolder =  the subject's folder name (e.g. 001-T1). Multiple can be entered at once.
 
-setenv SUBJECTS_DIR /home/camachocm2/Analysis/Aggregate_anats/tempSubjDir
-set rawfp = /home/camachocm2/moochie/DIBS/MRI_Data
+setenv SUBJECTS_DIR /home/camachocm2/Analysis/aggregate_anats/temp_Subjdir
+set tempraw = /moochie/Cat/Aggregate_anats/tempRawDir
+set rawfp = /moochie/DIBS/MRI_Data
 
 foreach sub ($argv)
 
-	mkdir /home/camachocm2/Analysis/Aggregate_anats/tempRawDir/D$sub
-	cp -r ${rawfp}/${sub}/T1w* /home/camachocm2/Analysis/Aggregate_anats/tempRawDir/D${sub}
+	mkdir ${tempraw}/D${sub}
+	cp -r ${rawfp}/${sub}/T1w* ${tempraw}/D${sub}
 	
-	set raw_dir = /home/camachocm2/Analysis/Aggregate_anats/tempRawDir/D${sub}/T1w*
+	set raw_dir = ${tempraw}/D${sub}/T1w*
 	set raw_dir = $raw_dir[$#raw_dir]
 	
 	set dicoms = ($raw_dir/*)
-	mri_convert -i $dicoms[1] -o ${raw_dir}/mprage.nii
+	mri_convert -i $dicoms[1] -o ${raw_dir}/mprage.nii.gz
 	
-	set rawdata = ${raw_dir}/mprage.nii 
+	set rawdata = ${raw_dir}/mprage.nii.gz
 
 	if (-e $rawdata) then
 		echo '****************************************************************** '
-		echo '****************************************************************** '
 		echo '***************** Working on subject '$sub'********************* '
-		echo '****************************************************************** '
 		echo '****************************************************************** '
 
 		recon-all -s D${sub} -i $rawdata -autorecon1 -gcut
 
 		echo '****************************************************************** '
-		echo '****************************************************************** '
 		echo '****************** finished subject '$sub'********************** '
-		echo '****************************************************************** '
 		echo '****************************************************************** '
 	else
 		echo

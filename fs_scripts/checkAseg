@@ -2,9 +2,8 @@
 #
 # Usage: checkAseg sub1 sub2 sub3
 
-set bin = /home/camachocm2/Analysis/Aggregate_anats/child_cortex/fs_scripts #path to bin
-#setenv SUBJECTS_DIR /home/camachocm2/Analysis/Aggregate_anats/tempSubjDir
-setenv SUBJECTS_DIR /home/camachocm2/moochie/Cat/Aggregate_anats/subjects_dir
+set bin = /home/camachocm2/Analysis/aggregate_anats/child_cortex/fs_scripts #path to bin
+setenv SUBJECTS_DIR /moochie/Cat/Aggregate_anats/subjects_dir
 
 foreach sub ($argv)
 
