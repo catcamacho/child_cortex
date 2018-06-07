@@ -1,0 +1,11 @@
+# this is a modification of FreeSurfer 5.3 LUT for 6 tissue segmentations
+
+#No. Label Name:                            R   G   B   A
+
+0   Unknown                                 0   0   0   0
+1   Cerebral-Spinal-Fluid                   70  130 180 0
+2   Cortical-Gray-Matter                    245 245 245 0
+3   Subcortical-Gray-Matter                 205 62  78  0
+4   White-Matter                            30  18  134 0
+5   Brainstem                               196 58  250 0
+6   Cerebellum                              0   148 0   0

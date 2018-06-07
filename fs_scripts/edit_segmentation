@@ -1,0 +1,9 @@
+#! /bin/csh
+
+set seg_dir = /moochie/Cat/Aggregate_anats/proc/subj_data/combined_labels
+set T1_dir = /moochie/Cat/Aggregate_anats/proc/subj_data/subject_T1
+set fs_bin = /home/camachocm2/Analysis/aggregate_anats/child_cortex/fs_scripts
+
+set sub = $argv[1]
+
+freeview -v $T1_dir/$sub/brain_reoriented.nii.gz -v $seg_dir/$sub/combined_tissues.nii.gz:colormap=lut:lut=$fs_bin/6seg_lut.txt:opacity=.17 &
