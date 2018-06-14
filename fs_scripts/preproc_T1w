@@ -1,18 +1,30 @@
 #! /bin/csh
 
-# Usage: preproc_T1w subjectFolder [subjectFolder subjectFolder...]
+# Usage: preproc_T1w studyName subjectFolder [subjectFolder subjectFolder...]
 # subjectFolder =  the subject's folder name (e.g. 001-T1). Multiple can be entered at once.
 
 setenv SUBJECTS_DIR /home/camachocm2/Analysis/aggregate_anats/temp_Subjdir
 set tempraw = /moochie/Cat/Aggregate_anats/tempRawDir
-set rawfp = /moochie/DIBS/MRI_Data
+
+if $argv[1]=='dibs' then
+	set rawfp = /moochie/DIBS/MRI_Data
+	set prefix = D
+elseif $argv[1]=='chec' then
+	set rawfp = /moochie/ChEC
+	set prefix = C
+elseif $argv[1]=='emogrow' then
+	set rawfp = /moochie/R01-EmoGrow/MRI_Data
+	set prefix = E
+endif
+
+shift
 
 foreach sub ($argv)
 
 	mkdir ${tempraw}/D${sub}
 	cp -r ${rawfp}/${sub}/T1w* ${tempraw}/D${sub}
 	
-	set raw_dir = ${tempraw}/D${sub}/T1w*
+	set raw_dir = ${tempraw}/${prefix}${sub}/T1w*
 	set raw_dir = $raw_dir[$#raw_dir]
 	
 	set dicoms = ($raw_dir/*)
@@ -25,7 +37,7 @@ foreach sub ($argv)
 		echo '***************** Working on subject '$sub'********************* '
 		echo '****************************************************************** '
 
-		recon-all -s D${sub} -i $rawdata -autorecon1 -gcut
+		recon-all -s ${prefix}${sub} -i $rawdata -autorecon1 -gcut
 
 		echo '****************************************************************** '
 		echo '****************** finished subject '$sub'********************** '
