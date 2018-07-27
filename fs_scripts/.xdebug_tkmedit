@@ -1,14 +1,10 @@
-tkmedit started: Mon Jul 23 14:30:51 2018
+tkmedit started: Thu Jul 26 15:55:13 2018
 
-	/usr/local/freesurfer/tktools/tkmedit.bin E010 brainmask.mgz -aux T1.mgz -tcl /home/camachocm2/Analysis/aggregate_anats/child_cortex/fs_scripts/tkmedit_BMedit.tcl 
+	/usr/local/freesurfer/tktools/tkmedit.bin E003 brainmask.mgz -aux T1.mgz -tcl /home/camachocm2/Analysis/aggregate_anats/child_cortex/fs_scripts/tkmedit_BMedit.tcl 
 
 $Id: tkmedit.c,v 1.348 2014/11/06 16:47:49 greve Exp $ $Name: stable6 $
 Set user home dir to /home/camachocm2/Analysis/aggregate_anats/child_cortex/fs_scripts
-Set subject home dir to /home/camachocm2/Analysis/aggregate_anats/temp_Subjdir/E010
+Set subject home dir to /home/camachocm2/Analysis/aggregate_anats/temp_Subjdir/E003
 Using interface file /usr/local/freesurfer/tktools/tkmedit.tcl
 Tcl: Successfully parsed tkmedit.tcl
 Tcl: Successfully parsed tkm_functional.tcl
-Error 10 in DspA_DspA_ConvertScreenToBuffer_: Invalid screen point.
-Error 10 in DspA_HandleMouseUp_: Invalid screen point.
-Error 10 in DspA_HandleEvent: Invalid screen point.
-Error 10 in MWin_Event: Error accessing display.
