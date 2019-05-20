@@ -4,21 +4,21 @@
 # subjectFolder =  the subject's folder name (e.g. 001-T1). Multiple can be entered at once.
 
 setenv SUBJECTS_DIR /home/camachocm2/Analysis/aggregate_anats/temp_Subjdir
-set tempraw = /moochie/Cat/Aggregate_anats/tempRawDir
+set tempraw = /moochie/user_data/CamachoCat/Aggregate_anats/tempRawDir
 
 switch ( $argv[1] )
 case "dibs":
-	set rawfp = /moochie/DIBS/MRI_Data
+	set rawfp = /moochie/study_data/DIBS/MRI_Data
 	set prefix = D
 	set file = T1w_MPR
 	breaksw
 case "chec":
-	set rawfp = /moochie/ChEC
+	set rawfp = /moochie/study_data/ChEC
 	set prefix = C
 	set file = SAG-MPRAGE
 	breaksw
 case "emogrow":
-	set rawfp = /moochie/R01-EmoGrow/MRI_Data
+	set rawfp = /moochie/study_data/R01-EmoGrow/MRI_Data
 	set prefix = E
 	set file = SAG-MPRAGE
 	breaksw
