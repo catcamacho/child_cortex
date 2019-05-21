@@ -1,10 +1,10 @@
-tkmedit started: Fri May 17 13:33:37 2019
+tkmedit started: Mon May 20 15:04:13 2019
 
-	/usr/local/freesurfer/tktools/tkmedit.bin C1034 brainmask.mgz -aux T1.mgz -tcl /home/camachocm2/Analysis/aggregate_anats/child_cortex/fs_scripts/tkmedit_BMedit.tcl 
+	/usr/local/freesurfer/tktools/tkmedit.bin D1071 brainmask.mgz -aux T1.mgz -tcl /home/camachocm2/Analysis/aggregate_anats/child_cortex/fs_scripts/tkmedit_BMedit.tcl 
 
 $Id: tkmedit.c,v 1.348 2014/11/06 16:47:49 greve Exp $ $Name: stable6 $
 Set user home dir to /home/camachocm2/Analysis/aggregate_anats/child_cortex/fs_scripts
-Set subject home dir to /home/camachocm2/Analysis/aggregate_anats/temp_Subjdir/C1034
+Set subject home dir to /home/camachocm2/Analysis/aggregate_anats/temp_Subjdir/D1071
 Using interface file /usr/local/freesurfer/tktools/tkmedit.tcl
 Tcl: Successfully parsed tkmedit.tcl
 Tcl: Successfully parsed tkm_functional.tcl

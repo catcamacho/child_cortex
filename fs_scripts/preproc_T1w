@@ -18,7 +18,7 @@ case "chec":
 	set file = SAG-MPRAGE
 	breaksw
 case "emogrow":
-	set rawfp = /moochie/study_data/R01-EmoGrow/MRI_Data
+	set rawfp = /moochie/study_data/EmoGrow/MRI_Data
 	set prefix = E
 	set file = SAG-MPRAGE
 	breaksw
