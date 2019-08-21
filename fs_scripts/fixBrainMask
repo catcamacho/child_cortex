@@ -5,7 +5,7 @@
 
 set sub = $argv[1]
 set bin = /home/camachocm2/Analysis/aggregate_anats/child_cortex/fs_scripts
-setenv SUBJECTS_DIR /home/camachocm2/Analysis/aggregate_anats/temp_Subjdir
+setenv SUBJECTS_DIR /home/camachocm2/Analysis/local_moochie/Aggregate_anats/subjects_dir
 
 echo
 echo
