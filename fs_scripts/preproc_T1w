@@ -3,22 +3,22 @@
 # Usage: preproc_T1w studyName subjectFolder [subjectFolder subjectFolder...]
 # subjectFolder =  the subject's folder name (e.g. 001-T1). Multiple can be entered at once.
 
-setenv SUBJECTS_DIR /home/camachocm2/Analysis/local_moochie/Aggregate_anats/subjects_dir
-set tempraw = /home/camachocm2/Analysis/local_moochie/Aggregate_anats/temp_raw
+setenv SUBJECTS_DIR /home/camachocm2/Analysis/aggregate_anats/temp_Subjdir
+set tempraw = /home/camachocm2/Analysis/aggregate_anats/temp_raw
 
 switch ( $argv[1] )
 case "dibs":
-	set rawfp = /home/camachocm2/Analysis/local_moochie/DIBS
+	set rawfp = /moochie/study_data/DIBS/MRI_data
 	set prefix = D
 	set file = T1w_MPR
 	breaksw
 case "chec":
-	set rawfp = /home/camachocm2/Analysis/local_moochie/ChEC
+	set rawfp = /moochie/study_data/ChEC
 	set prefix = C
 	set file = SAG-MPRAGE
 	breaksw
 case "emogrow":
-	set rawfp = /home/camachocm2/Analysis/local_moochie/EmoGrow
+	set rawfp = /moochie/study_data/EmoGrow/MRI_data
 	set prefix = E
 	set file = SAG-MPRAGE
 	breaksw
@@ -29,12 +29,12 @@ shift
 foreach sub ($argv)
 
 	mkdir ${tempraw}/${prefix}${sub}
-	cp -r ${rawfp}/${sub}/${file}* ${tempraw}/${prefix}${sub}
+	cp -r ${rawfp}/${sub}/*${file}* ${tempraw}/${prefix}${sub}
 	
-	set raw_dir = ${tempraw}/${prefix}${sub}/${file}*
+	set raw_dir = ${tempraw}/${prefix}${sub}/*${file}*
 	set raw_dir = $raw_dir[$#raw_dir]
 	
-	set dicoms = ($raw_dir/*)
+	set dicoms = ($raw_dir/MR.*)
 	mri_convert -i $dicoms[1] -o ${raw_dir}/mprage.nii.gz
 	
 	set rawdata = ${raw_dir}/mprage.nii.gz
